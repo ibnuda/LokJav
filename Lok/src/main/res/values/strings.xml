@@ -1,0 +1,14 @@
+<resources>
+	<string name="app_name">LokJav</string>
+	<string name="default_upload_site">http://pancanaka.net/gpstracker/updatelocation.php</string>
+	<string name="hello_world">Hello world!</string>
+	<string name="action_settings">Settings</string>
+	<string name="track_on">Tracking!</string>
+	<string name="track_off">!Tracking</string>
+	<string name="username">Username</string>
+	<string name="satu_menit">Satu menit</string>
+	<string name="tiga_menit">Tiga menit</string>
+	<string name="lima_menit">Lima menit</string>
+	<string name="frekuensi">Frekuensi</string>
+	<string name="harus_restart">Harus stop tracking dulu</string>
+</resources>
