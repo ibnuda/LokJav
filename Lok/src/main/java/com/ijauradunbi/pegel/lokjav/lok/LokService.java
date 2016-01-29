@@ -14,9 +14,12 @@ import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.location.LocationRequest;
-import com.google.android.gms.nearby.sharing.SharedContent;
+import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
+import cz.msebera.android.httpclient.Header;
 
+import java.net.URLEncoder;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -82,8 +85,36 @@ public class LokService extends Service implements GoogleApiClient.ConnectionCal
         }
         editor.putFloat("prevLat", (float) location.getLatitude());
         editor.putFloat("prevLong", (float) location.getLongitude());
+        editor.apply();
 
         final RequestParams requestParams = new RequestParams();
+        requestParams.put("latitude", Double.toString(location.getLatitude()));
+        requestParams.put("longitude", Double.toString(location.getLongitude()));
+        requestParams.put("speed", Float.toString(location.getSpeed()));
+        requestParams.put("date", URLEncoder.encode(dateFormat.format(date)));
+
+        if (totalDistance > 0) requestParams.put("distance", totalDistance);
+        else requestParams.put("distance", 0.0);
+
+        requestParams.put("username", prefs.getString("username", ""));
+        requestParams.put("appId", prefs.getString("appId", ""));
+        requestParams.put("sessionId", prefs.getString("sessionId", ""));
+        requestParams.put("accuracy", Float.toString(location.getAccuracy()));
+        requestParams.put("altitude", Double.toString(location.getAltitude()));
+
+        AsyncHttpClient client = new AsyncHttpClient();
+
+        client.get(defaultUploadSite, requestParams, new AsyncHttpResponseHandler() {
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
+                // FIXME: 2016-01-29 you know what to do.
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
+                // FIXME: 2016-01-29 you know what to do.
+            }
+        });
     }
 
     @Override
@@ -95,6 +126,7 @@ public class LokService extends Service implements GoogleApiClient.ConnectionCal
     }
 
     private void stopLocationUpdate() {
-        if (googleApiClient != null && googleApiClient.isConnected()) googleApiClient.disconnect();
+        if (googleApiClient != null && googleApiClient.isConnected())
+            googleApiClient.disconnect();
     }
 }
