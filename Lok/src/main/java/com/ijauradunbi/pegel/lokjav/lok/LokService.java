@@ -11,9 +11,11 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.Log;
 import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.location.LocationRequest;
+import com.google.android.gms.location.LocationServices;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
@@ -37,6 +39,28 @@ public class LokService extends Service implements GoogleApiClient.ConnectionCal
     }
 
     @Override
+    public int onStartCommand(Intent intent, int flags, int startId){
+        if (!processNow) {
+            processNow = true;
+            startTracking();
+        }
+        return START_NOT_STICKY;
+    }
+
+    private void startTracking() {
+        Log.d(TAG, "startTracking");
+
+        if (GooglePlayServicesUtil.isGooglePlayServicesAvailable(this) != ConnectionResult.SUCCESS) Log.d(TAG, "unable to connect.");
+        else {
+            googleApiClient = new GoogleApiClient.Builder(this).addApi(LocationServices.API)
+                    .addConnectionCallbacks(this)
+                    .addOnConnectionFailedListener(this)
+                    .build();
+            if (googleApiClient.isConnecting() || googleApiClient.isConnected()) googleApiClient.connect();
+        }
+    }
+
+    @Override
     public IBinder onBind(Intent intent) {
         // TODO: Return the communication channel to the service.
         throw new UnsupportedOperationException("Not yet implemented");
@@ -44,12 +68,19 @@ public class LokService extends Service implements GoogleApiClient.ConnectionCal
 
     @Override
     public void onConnected(@Nullable Bundle bundle) {
+        Log.d(TAG, "onConnected");
 
+        locationRequest = LocationRequest.create();
+        locationRequest.setInterval(1000);
+        locationRequest.setFastestInterval(1000);
+        locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
+
+        LocationServices.FusedLocationApi.requestLocationUpdates(googleApiClient, locationRequest, this);
     }
 
     @Override
     public void onConnectionSuspended(int i) {
-
+        Log.d(TAG, "Klien di suspend");
     }
 
     @Override
