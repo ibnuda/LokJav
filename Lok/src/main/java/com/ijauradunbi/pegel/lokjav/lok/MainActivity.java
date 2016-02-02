@@ -198,4 +198,12 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    @Override
+    public void onResume(){
+        Log.d(TAG, "onResume");
+        super.onResume();
+        displaySettings();
+        setTrackButton();
+    }
 }

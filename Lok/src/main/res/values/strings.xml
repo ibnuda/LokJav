@@ -11,4 +11,5 @@
 	<string name="lima_menit">Lima menit</string>
 	<string name="frekuensi">Frekuensi</string>
 	<string name="harus_restart">Harus stop tracking dulu</string>
+	<string name="google_app_id">377448675651</string>
 </resources>
