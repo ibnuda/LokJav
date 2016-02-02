@@ -138,11 +138,13 @@ public class LokService extends Service implements GoogleApiClient.ConnectionCal
         client.get(defaultUploadSite, requestParams, new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
+                Log.d(TAG, "sukses.");
                 // FIXME: 2016-01-29 you know what to do.
             }
 
             @Override
             public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
+                Log.d(TAG, "gagal.");
                 // FIXME: 2016-01-29 you know what to do.
             }
         });

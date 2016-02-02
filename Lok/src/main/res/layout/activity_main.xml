@@ -1,4 +1,4 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -12,31 +12,18 @@
 		android:layout_width="wrap_content"
 		android:layout_height="match_parent"
 		android:id="@+id/edit_text_username"
-		android:layout_alignParentTop="true"
-		android:layout_alignParentRight="true"
-		android:layout_alignParentLeft="true"
-		android:layout_alignParentBottom="true"
-	  android:layout_alignParentEnd="true"
 	  android:hint="@string/username" />
 
 	<TextView
 		android:layout_width="wrap_content"
 		android:layout_height="match_parent"
 		android:text="@string/frekuensi"
-		android:layout_alignParentTop="true"
-		android:layout_alignParentRight="true"
-		android:layout_alignParentLeft="true"
-		android:layout_alignParentBottom="true"
-		android:layout_alignParentEnd="true"
 	  android:id="@+id/label_interval" />
 
 	<RadioGroup
 		android:id="@+id/rg_interval"
 		android:layout_width="wrap_content"
 		android:layout_height="match_parent"
-	  android:layout_below="@+id/label_interval"
-	  android:layout_alignParentLeft="true"
-	  android:layout_alignParentStart="true"
 	  android:layout_marginTop="10dp"
 	  android:layout_marginBottom="10dp" >
 		<RadioButton
@@ -58,7 +45,6 @@
 	<LinearLayout
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:layout_alignParentBottom="true"
 		android:orientation="horizontal">
 		<Button
 			android:layout_width="match_parent"
@@ -66,4 +52,4 @@
 			android:id="@+id/butt_track"
 			android:text="@string/track_off"/>
 	</LinearLayout>
-</RelativeLayout>
+</LinearLayout>

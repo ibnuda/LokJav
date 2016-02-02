@@ -6,7 +6,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.SystemClock;
-import android.support.annotation.StringDef;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -25,7 +24,7 @@ import java.util.UUID;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
-    private String defaultUploadSite = "http://pancanaka.net/gpstracker/updatelocation.php";//getString(R.string.default_upload_site);
+    public String defaultUploadSite = "http://pancanaka.net/gpstracker/updatelocation.php";//getString(R.string.default_upload_site);
 
     private static EditText etUsername;
     private static Button buttTracking;
