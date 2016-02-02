@@ -25,7 +25,7 @@ import java.util.UUID;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
-    private String defaultUploadSite = getString(R.string.default_upload_site);
+    private String defaultUploadSite = "http://pancanaka.net/gpstracker/updatelocation.php";//getString(R.string.default_upload_site);
 
     private static EditText etUsername;
     private static Button buttTracking;
