@@ -11,6 +11,6 @@ public class LokAlarmReceiver extends WakefulBroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        throw new UnsupportedOperationException("Not yet implemented");
+        context.startService(new Intent(context, LokService.class));
     }
 }
