@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
         if (firstTime) {
             SharedPreferences.Editor editor = prefs.edit();
             editor.putBoolean("firstTime", false);
-            editor.putString("appID", UUID.randomUUID().toString());
+            editor.putString("appId", UUID.randomUUID().toString());
             editor.apply();
         }
 
@@ -155,14 +155,14 @@ public class MainActivity extends AppCompatActivity {
             cancelAlarmManager();
             trackingNow =false;
             editor.putBoolean("trackingNow", trackingNow);
-            editor.putString("sessionID", "");
+            editor.putString("sessionId", "");
         } else {
             startAlarmManager();
             trackingNow = true;
             editor.putBoolean("trackingNow", trackingNow);
             editor.putFloat("totalDistance", 0f);
             editor.putBoolean("firstTime", false);
-            editor.putString("sessionID", UUID.randomUUID().toString());
+            editor.putString("sessionId", UUID.randomUUID().toString());
         }
         editor.apply();
         setTrackButton();

@@ -62,7 +62,6 @@ public class LokService extends Service implements GoogleApiClient.ConnectionCal
 
     @Override
     public IBinder onBind(Intent intent) {
-        // TODO: Return the communication channel to the service.
         throw new UnsupportedOperationException("Not yet implemented");
     }
 
@@ -85,7 +84,11 @@ public class LokService extends Service implements GoogleApiClient.ConnectionCal
 
     @Override
     public void onLocationChanged(Location location) {
-        if (location == null) return;
+        Log.d(TAG, "Checking location.");
+        if (location == null) {
+            Log.e(TAG, "Ndak dapat cari lokasi.");
+            return;
+        };
         Log.e(TAG, "Posisi : " + location.getLatitude() + ", " + location.getLongitude() + ". Akurasi : " + location.getAccuracy());
         if (location.getAccuracy() > 500.0f) return;
         stopLocationUpdate();
@@ -128,8 +131,8 @@ public class LokService extends Service implements GoogleApiClient.ConnectionCal
         else requestParams.put("distance", 0.0);
 
         requestParams.put("username", prefs.getString("username", ""));
-        requestParams.put("appId", prefs.getString("appId", ""));
-        requestParams.put("sessionId", prefs.getString("sessionId", ""));
+        requestParams.put("phonenumber", prefs.getString("appId", ""));
+        requestParams.put("sessionid", prefs.getString("sessionId", ""));
         requestParams.put("accuracy", Float.toString(location.getAccuracy()));
         requestParams.put("altitude", Double.toString(location.getAltitude()));
         requestParams.put("password", "parametrik2016");
@@ -140,13 +143,15 @@ public class LokService extends Service implements GoogleApiClient.ConnectionCal
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
                 Log.d(TAG, "sukses.");
-                // FIXME: 2016-01-29 you know what to do.
+                LoopjHttpClient.debugLoop(TAG, "sendData sukses", defaultUploadSite, requestParams, responseBody, headers, statusCode, null);
+                stopSelf();
             }
 
             @Override
             public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
                 Log.d(TAG, "gagal.");
-                // FIXME: 2016-01-29 you know what to do.
+                LoopjHttpClient.debugLoop(TAG, "sendData gagal", defaultUploadSite, requestParams, responseBody, headers, statusCode, error);
+                stopSelf();
             }
         });
     }
