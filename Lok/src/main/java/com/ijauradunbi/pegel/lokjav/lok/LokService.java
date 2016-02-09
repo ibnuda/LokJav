@@ -50,13 +50,18 @@ public class LokService extends Service implements GoogleApiClient.ConnectionCal
     private void startTracking() {
         Log.d(TAG, "startTracking");
 
-        if (GooglePlayServicesUtil.isGooglePlayServicesAvailable(this) != ConnectionResult.SUCCESS) Log.d(TAG, "unable to connect.");
+        if (GooglePlayServicesUtil.isGooglePlayServicesAvailable(this) != ConnectionResult.SUCCESS)
+            Log.d(TAG, "unable to connect.");
         else {
+            Log.d(TAG, "startTracking, creating googleApiClient.");
             googleApiClient = new GoogleApiClient.Builder(this).addApi(LocationServices.API)
                     .addConnectionCallbacks(this)
                     .addOnConnectionFailedListener(this)
                     .build();
-            if (googleApiClient.isConnecting() || googleApiClient.isConnected()) googleApiClient.connect();
+
+            Log.d(TAG, "startTracking, connecting googleApiClient to the server.");
+            if (!googleApiClient.isConnecting() || !googleApiClient.isConnected()) googleApiClient.connect();
+            Log.d(TAG, "startTracking, googleApiClient connected.");
         }
     }
 
@@ -88,7 +93,7 @@ public class LokService extends Service implements GoogleApiClient.ConnectionCal
         if (location == null) {
             Log.e(TAG, "Ndak dapat cari lokasi.");
             return;
-        };
+        }
         Log.e(TAG, "Posisi : " + location.getLatitude() + ", " + location.getLongitude() + ". Akurasi : " + location.getAccuracy());
         if (location.getAccuracy() > 500.0f) return;
         stopLocationUpdate();
