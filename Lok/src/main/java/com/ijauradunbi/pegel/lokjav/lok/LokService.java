@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.location.Location;
+import android.nfc.Tag;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.support.annotation.NonNull;
@@ -30,7 +31,8 @@ import java.util.TimeZone;
 public class LokService extends Service implements GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, LocationListener {
 
     private static final String TAG = "LokService";
-    private static final String defaultUploadSite = "http://pancanaka.net/gpstracker/updatelocation.php";
+    private static final String defaultUploadSitePancanaka = "http://pancanaka.net/gpstracker/updatelocation.php";
+    private static final String defaultUploadSite = "https://www.websmithing.com/gpstracker/updatelocation.php";
     private boolean processNow = false;
     private LocationRequest locationRequest;
     private GoogleApiClient googleApiClient;
@@ -142,9 +144,9 @@ public class LokService extends Service implements GoogleApiClient.ConnectionCal
         requestParams.put("altitude", Double.toString(location.getAltitude()));
         requestParams.put("password", "parametrik2016");
 
-        AsyncHttpClient client = new AsyncHttpClient();
+        final AsyncHttpClient client = new AsyncHttpClient();
 
-        client.get(defaultUploadSite, requestParams, new AsyncHttpResponseHandler() {
+        client.get(defaultUploadSitePancanaka, requestParams, new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
                 Log.d(TAG, "sukses.");
@@ -156,6 +158,21 @@ public class LokService extends Service implements GoogleApiClient.ConnectionCal
             public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
                 Log.d(TAG, "gagal.");
                 LoopjHttpClient.debugLoop(TAG, "sendData gagal", defaultUploadSite, requestParams, responseBody, headers, statusCode, error);
+                client.get(defaultUploadSite, requestParams, new AsyncHttpResponseHandler() {
+                    @Override
+                    public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
+                        Log.d(TAG, "sent to default web.");
+                        LoopjHttpClient.debugLoop(TAG, "sendData sukses ke websmithing.", defaultUploadSite, requestParams, responseBody, headers, statusCode, null);
+                        stopSelf();
+                    }
+
+                    @Override
+                    public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
+                        Log.d(TAG, "you dun goofed, m8.");
+                        LoopjHttpClient.debugLoop(TAG, "sendData gagal ke websmithing.", defaultUploadSite, requestParams, responseBody, headers, statusCode, null);
+                        stopSelf();
+                    }
+                });
                 stopSelf();
             }
         });
