@@ -72,7 +72,11 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             public boolean onEditorAction(TextView textView, int id, KeyEvent keyEvent) {
                 if (id == R.id.login || id == EditorInfo.IME_NULL) {
                     Log.d(TAG, "onEditorAction: Attempting login.");
-                    attemptLogin();
+                    try {
+                        attemptLogin();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                     return true;
                 }
                 return false;
@@ -84,7 +88,11 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             @Override
             public void onClick(View view) {
                 Log.d(TAG, "onClick: Attempting login.");
-                attemptLogin();
+                try {
+                    attemptLogin();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
             }
         });
 
@@ -102,7 +110,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
      * If there are form errors (invalid email, missing fields, etc.), the
      * errors are presented and no actual login attempt is made.
      */
-    private void attemptLogin() {
+    private void attemptLogin() throws InterruptedException {
         if (mAuthTask != null) {
             return;
         }
@@ -150,6 +158,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             mAuthTask = new UserLoginTask(email, password);
             mAuthTask.execute((Void) null);
             Log.d(TAG, "attemptLogin: loggedIn : " + loggedIn);
+            Thread.sleep(2000);
+            Log.d(TAG, "attemptLogin: after sleep 2 seconds.");
             if (loggedIn) {
                 Intent intent = new Intent(this, MainActivity.class);
                 startActivity(intent);
@@ -286,6 +296,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             for (String credential : DUMMY_CREDENTIALS) {
                 String[] pieces = credential.split(":");
                 if (pieces[0].equals(mEmail)) {
+                    loggedIn = true;
                     // Account exists, return true if the password matches.
                     return pieces[1].equals(mPassword);
                 }
@@ -302,7 +313,6 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
             if (success) {
                 Log.d(TAG, "onPostExecute: onPostExecute success.");
-                loggedIn = true;
             } else {
                 mPasswordView.setError(getString(R.string.error_incorrect_password));
                 mPasswordView.requestFocus();
