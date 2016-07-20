@@ -3,6 +3,7 @@ package com.ijauradunbi.pegel.lokjav.lok;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.app.LoaderManager.LoaderCallbacks;
 
@@ -16,6 +17,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -35,6 +37,7 @@ import java.util.List;
  */
 public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<Cursor> {
 
+    private static final String TAG = "LoginActivity";
     /**
      * A dummy authentication store containing known user names and passwords.
      * TODO: remove after connecting to a real authentication system.
@@ -47,6 +50,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
      */
     private UserLoginTask mAuthTask = null;
 
+    // Shitty hacks.
+    private boolean loggedIn = false;
     // UI references.
     private AutoCompleteTextView mEmailView;
     private EditText mPasswordView;
@@ -66,6 +71,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             @Override
             public boolean onEditorAction(TextView textView, int id, KeyEvent keyEvent) {
                 if (id == R.id.login || id == EditorInfo.IME_NULL) {
+                    Log.d(TAG, "onEditorAction: Attempting login.");
                     attemptLogin();
                     return true;
                 }
@@ -77,6 +83,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         mEmailSignInButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
+                Log.d(TAG, "onClick: Attempting login.");
                 attemptLogin();
             }
         });
@@ -106,7 +113,9 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
         // Store values at the time of the login attempt.
         String email = mEmailView.getText().toString();
+        Log.d(TAG, "attemptLogin: email : " + email.toString());
         String password = mPasswordView.getText().toString();
+        Log.d(TAG, "attemptLogin: password : " + password.toString());
 
         boolean cancel = false;
         View focusView = null;
@@ -136,9 +145,16 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         } else {
             // Show a progress spinner, and kick off a background task to
             // perform the user login attempt.
+            Log.d(TAG, "attemptLogin: really attempting to login.");
             showProgress(true);
             mAuthTask = new UserLoginTask(email, password);
             mAuthTask.execute((Void) null);
+            Log.d(TAG, "attemptLogin: loggedIn : " + loggedIn);
+            if (loggedIn) {
+                Intent intent = new Intent(this, MainActivity.class);
+                startActivity(intent);
+            }
+            Log.d(TAG, "attemptLogin: loggedIn : " + loggedIn);
         }
     }
 
@@ -285,7 +301,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             showProgress(false);
 
             if (success) {
-                finish();
+                Log.d(TAG, "onPostExecute: onPostExecute success.");
+                loggedIn = true;
             } else {
                 mPasswordView.setError(getString(R.string.error_incorrect_password));
                 mPasswordView.requestFocus();
