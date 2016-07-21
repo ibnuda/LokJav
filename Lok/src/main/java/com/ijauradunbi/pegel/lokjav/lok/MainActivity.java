@@ -206,4 +206,9 @@ public class MainActivity extends AppCompatActivity {
         displaySettings();
         setTrackButton();
     }
+
+    @Override
+    public void onBackPressed(){
+
+    }
 }
