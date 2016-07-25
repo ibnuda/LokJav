@@ -3,19 +3,17 @@ package com.ijauradunbi.pegel.lokjav.lok;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
-import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.app.LoaderManager.LoaderCallbacks;
-
 import android.content.CursorLoader;
+import android.content.Intent;
 import android.content.Loader;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.AsyncTask;
-
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract;
+import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -158,6 +156,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             mAuthTask = new UserLoginTask(email, password);
             mAuthTask.execute((Void) null);
             Log.d(TAG, "attemptLogin: loggedIn : " + loggedIn);
+            /*
             Thread.sleep(2000);
             Log.d(TAG, "attemptLogin: after sleep 2 seconds.");
             if (loggedIn) {
@@ -165,6 +164,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 startActivity(intent);
             }
             Log.d(TAG, "attemptLogin: loggedIn : " + loggedIn);
+            */
         }
     }
 
@@ -312,6 +312,12 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             showProgress(false);
 
             if (success) {
+                if (loggedIn) {
+                    Intent mainActivity = new Intent(getApplicationContext(), MainActivity.class);
+                    mainActivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(mainActivity);
+                    finish();
+                }
                 Log.d(TAG, "onPostExecute: onPostExecute success.");
             } else {
                 mPasswordView.setError(getString(R.string.error_incorrect_password));
