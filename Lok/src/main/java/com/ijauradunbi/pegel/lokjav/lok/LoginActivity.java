@@ -312,12 +312,10 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             showProgress(false);
 
             if (success) {
-                if (loggedIn) {
-                    Intent mainActivity = new Intent(getApplicationContext(), MainActivity.class);
-                    mainActivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                    startActivity(mainActivity);
-                    finish();
-                }
+                Intent mainActivity = new Intent(getApplicationContext(), HomeActivity.class);
+                mainActivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(mainActivity);
+                finish();
                 Log.d(TAG, "onPostExecute: onPostExecute success.");
             } else {
                 mPasswordView.setError(getString(R.string.error_incorrect_password));

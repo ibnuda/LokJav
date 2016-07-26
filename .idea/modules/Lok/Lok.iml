@@ -191,8 +191,8 @@
     <orderEntry type="library" exported="" scope="TEST" name="robolectric-resources-3.0" level="project" />
     <orderEntry type="library" exported="" name="play-services-tasks-9.2.1" level="project" />
     <orderEntry type="library" exported="" name="play-services-cast-framework-9.2.1" level="project" />
-    <orderEntry type="library" exported="" scope="TEST" name="asm-tree-5.0.1" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="sqlite4java-0.282" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="asm-tree-5.0.1" level="project" />
     <orderEntry type="library" exported="" name="play-services-cast-9.2.1" level="project" />
     <orderEntry type="library" exported="" name="firebase-config-9.2.1" level="project" />
     <orderEntry type="library" exported="" name="firebase-database-connection-9.2.1" level="project" />
@@ -233,8 +233,8 @@
     <orderEntry type="library" exported="" name="play-services-iid-9.2.1" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="robolectric-annotations-3.0" level="project" />
     <orderEntry type="library" exported="" name="play-services-basement-9.2.1" level="project" />
-    <orderEntry type="library" exported="" scope="TEST" name="robolectric-utils-3.0" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="asm-analysis-5.0.1" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="robolectric-utils-3.0" level="project" />
     <orderEntry type="library" exported="" name="mediarouter-v7-23.0.0" level="project" />
     <orderEntry type="library" exported="" name="firebase-crash-9.2.1" level="project" />
     <orderEntry type="library" exported="" name="play-services-safetynet-9.2.1" level="project" />
