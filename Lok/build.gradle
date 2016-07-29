@@ -51,6 +51,10 @@ dependencies {
     compile 'com.android.support:appcompat-v7:23.4.0'
     compile 'com.google.android.gms:play-services:9.2.1'
     compile 'com.loopj.android:android-async-http:1.4.9'
+    compile 'org.igniterealtime.smack:smack-android-extensions:4.1.5'
+    compile 'org.igniterealtime.smack:smack-experimental:4.1.5'
+    compile 'org.igniterealtime.smack:smack-tcp:4.1.5'
+    compile 'org.jitsi:org.otr4j:0.22'
     compile 'com.android.support:design:23.4.0'
     compile 'com.android.support:support-v4:23.4.0'
 }

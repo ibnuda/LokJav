@@ -24,32 +24,32 @@
 
         <activity
             android:name=".MainActivity"
-            android:label="@string/app_name">
-        </activity>
+            android:label="@string/app_name"></activity>
 
         <receiver
             android:name=".LokAlarmReceiver"
             android:enabled="true"
-            android:exported="true"></receiver>
+            android:exported="true" />
 
         <service
             android:name=".LokService"
             android:enabled="true"
-            android:exported="true"></service>
+            android:exported="true" />
 
         <receiver
             android:name=".LokBootReceiver"
             android:enabled="true"
-            android:exported="true"></receiver>
+            android:exported="true" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyCAeJTLRYAzkhWzOUNbiJzooEAZLsfDbzs" />
 
         <activity
-                android:name=".HomeActivity"
-                android:label="@string/title_activity_home"
-                android:theme="@style/AppTheme.NoActionBar">
+            android:name=".HomeActivity"
+            android:label="@string/title_activity_home"
+            android:theme="@style/AppTheme.NoActionBar">
+
             <!--
                 <intent-filter>
                     <action android:name="android.intent.action.MAIN"/>
