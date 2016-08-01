@@ -64,14 +64,6 @@
       <sourceFolder url="file://$MODULE_DIR$/../../../Lok/src/main/jni" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../../Lok/src/main/rs" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../../Lok/src/main/shaders" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/../../../Lok/src/androidTest/res" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/../../../Lok/src/androidTest/resources" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/../../../Lok/src/androidTest/assets" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/../../../Lok/src/androidTest/aidl" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/../../../Lok/src/androidTest/java" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/../../../Lok/src/androidTest/jni" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/../../../Lok/src/androidTest/rs" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/../../../Lok/src/androidTest/shaders" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/../../../Lok/src/test/res" type="java-test-resource" />
       <sourceFolder url="file://$MODULE_DIR$/../../../Lok/src/test/resources" type="java-test-resource" />
       <sourceFolder url="file://$MODULE_DIR$/../../../Lok/src/test/assets" type="java-test-resource" />
@@ -80,6 +72,14 @@
       <sourceFolder url="file://$MODULE_DIR$/../../../Lok/src/test/jni" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/../../../Lok/src/test/rs" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/../../../Lok/src/test/shaders" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/../../../Lok/src/androidTest/res" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/../../../Lok/src/androidTest/resources" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/../../../Lok/src/androidTest/assets" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/../../../Lok/src/androidTest/aidl" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/../../../Lok/src/androidTest/java" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/../../../Lok/src/androidTest/jni" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/../../../Lok/src/androidTest/rs" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/../../../Lok/src/androidTest/shaders" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/../../../Lok/build/intermediates/assets" />
       <excludeFolder url="file://$MODULE_DIR$/../../../Lok/build/intermediates/blame" />
       <excludeFolder url="file://$MODULE_DIR$/../../../Lok/build/intermediates/builds" />
@@ -177,8 +177,8 @@
     <orderEntry type="library" exported="" name="support-v4-23.4.0" level="project" />
     <orderEntry type="library" exported="" name="play-services-drive-9.2.1" level="project" />
     <orderEntry type="library" exported="" name="firebase-storage-9.2.1" level="project" />
-    <orderEntry type="library" exported="" name="minidns-0.1.7" level="project" />
     <orderEntry type="library" exported="" name="httpclient-4.3.6" level="project" />
+    <orderEntry type="library" exported="" name="minidns-0.1.7" level="project" />
     <orderEntry type="library" exported="" name="org.otr4j-0.22" level="project" />
     <orderEntry type="library" exported="" name="firebase-common-9.2.1" level="project" />
     <orderEntry type="library" exported="" name="smack-experimental-4.1.5" level="project" />
@@ -196,8 +196,8 @@
     <orderEntry type="library" exported="" scope="TEST" name="robolectric-resources-3.0" level="project" />
     <orderEntry type="library" exported="" name="play-services-tasks-9.2.1" level="project" />
     <orderEntry type="library" exported="" name="play-services-cast-framework-9.2.1" level="project" />
-    <orderEntry type="library" exported="" scope="TEST" name="asm-tree-5.0.1" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="sqlite4java-0.282" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="asm-tree-5.0.1" level="project" />
     <orderEntry type="library" exported="" name="play-services-cast-9.2.1" level="project" />
     <orderEntry type="library" exported="" name="firebase-config-9.2.1" level="project" />
     <orderEntry type="library" exported="" name="firebase-database-connection-9.2.1" level="project" />

@@ -91,7 +91,7 @@ public class HomeActivity extends AppCompatActivity
         } else if (id == R.id.nav_cuap_fragment) {
             fragment = new CuapFragment();
         } else if (id == R.id.nav_slideshow) {
-
+            fragment = new TrackFragment();
         } else if (id == R.id.nav_manage) {
 
         } else if (id == R.id.nav_share) {
