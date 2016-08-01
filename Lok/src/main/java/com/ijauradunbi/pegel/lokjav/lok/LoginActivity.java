@@ -312,9 +312,11 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             showProgress(false);
 
             if (success) {
-                Intent mainActivity = new Intent(getApplicationContext(), HomeActivity.class);
+                Intent mainActivity = new Intent(getApplicationContext(), MainActivity.class);
+                Intent homeActivity = new Intent(getApplicationContext(), HomeActivity.class);
                 mainActivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(mainActivity);
+                homeActivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(homeActivity);
                 finish();
                 Log.d(TAG, "onPostExecute: onPostExecute success.");
             } else {

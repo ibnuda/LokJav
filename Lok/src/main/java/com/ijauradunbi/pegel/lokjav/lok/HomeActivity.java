@@ -17,7 +17,9 @@ import android.view.MenuItem;
 import android.view.View;
 
 public class HomeActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, MainFragment.OnFragmentInteractionListener {
+        implements NavigationView.OnNavigationItemSelectedListener,
+        MainFragment.OnFragmentInteractionListener,
+        CuapFragment.OnFragmentInteractionListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,10 +86,10 @@ public class HomeActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
+        if (id == R.id.nav_main_fragment) {
             fragment = new MainFragment();
-        } else if (id == R.id.nav_gallery) {
-
+        } else if (id == R.id.nav_cuap_fragment) {
+            fragment = new CuapFragment();
         } else if (id == R.id.nav_slideshow) {
 
         } else if (id == R.id.nav_manage) {
@@ -100,7 +102,7 @@ public class HomeActivity extends AppCompatActivity
 
         if (null != fragment) {
             FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.drawer_layout, fragment);
+            fragmentTransaction.replace(R.id.frame_layout_fragments, fragment);
             fragmentTransaction.commit();
         }
 
