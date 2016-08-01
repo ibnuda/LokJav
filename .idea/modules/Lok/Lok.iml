@@ -47,7 +47,6 @@
       <sourceFolder url="file://$MODULE_DIR$/../../../Lok/src/debug/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../../Lok/src/debug/jni" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../../Lok/src/debug/rs" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/../../../Lok/src/debug/shaders" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../../Lok/src/testDebug/res" type="java-test-resource" />
       <sourceFolder url="file://$MODULE_DIR$/../../../Lok/src/testDebug/resources" type="java-test-resource" />
       <sourceFolder url="file://$MODULE_DIR$/../../../Lok/src/testDebug/assets" type="java-test-resource" />
@@ -55,7 +54,6 @@
       <sourceFolder url="file://$MODULE_DIR$/../../../Lok/src/testDebug/java" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/../../../Lok/src/testDebug/jni" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/../../../Lok/src/testDebug/rs" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/../../../Lok/src/testDebug/shaders" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/../../../Lok/src/main/res" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/../../../Lok/src/main/resources" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/../../../Lok/src/main/assets" type="java-resource" />
@@ -63,7 +61,6 @@
       <sourceFolder url="file://$MODULE_DIR$/../../../Lok/src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../../Lok/src/main/jni" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../../Lok/src/main/rs" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/../../../Lok/src/main/shaders" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../../Lok/src/test/res" type="java-test-resource" />
       <sourceFolder url="file://$MODULE_DIR$/../../../Lok/src/test/resources" type="java-test-resource" />
       <sourceFolder url="file://$MODULE_DIR$/../../../Lok/src/test/assets" type="java-test-resource" />
@@ -71,7 +68,6 @@
       <sourceFolder url="file://$MODULE_DIR$/../../../Lok/src/test/java" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/../../../Lok/src/test/jni" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/../../../Lok/src/test/rs" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/../../../Lok/src/test/shaders" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/../../../Lok/src/androidTest/res" type="java-test-resource" />
       <sourceFolder url="file://$MODULE_DIR$/../../../Lok/src/androidTest/resources" type="java-test-resource" />
       <sourceFolder url="file://$MODULE_DIR$/../../../Lok/src/androidTest/assets" type="java-test-resource" />
@@ -79,10 +75,8 @@
       <sourceFolder url="file://$MODULE_DIR$/../../../Lok/src/androidTest/java" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/../../../Lok/src/androidTest/jni" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/../../../Lok/src/androidTest/rs" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/../../../Lok/src/androidTest/shaders" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/../../../Lok/build/intermediates/assets" />
       <excludeFolder url="file://$MODULE_DIR$/../../../Lok/build/intermediates/blame" />
-      <excludeFolder url="file://$MODULE_DIR$/../../../Lok/build/intermediates/builds" />
       <excludeFolder url="file://$MODULE_DIR$/../../../Lok/build/intermediates/bundles" />
       <excludeFolder url="file://$MODULE_DIR$/../../../Lok/build/intermediates/classes" />
       <excludeFolder url="file://$MODULE_DIR$/../../../Lok/build/intermediates/dependency-cache" />
@@ -145,16 +139,13 @@
       <excludeFolder url="file://$MODULE_DIR$/../../../Lok/build/intermediates/exploded-aar/com.google.firebase/firebase-storage-common/9.2.1/jars" />
       <excludeFolder url="file://$MODULE_DIR$/../../../Lok/build/intermediates/exploded-aar/com.google.firebase/firebase-storage/9.2.1/jars" />
       <excludeFolder url="file://$MODULE_DIR$/../../../Lok/build/intermediates/incremental" />
-      <excludeFolder url="file://$MODULE_DIR$/../../../Lok/build/intermediates/incremental-classes" />
-      <excludeFolder url="file://$MODULE_DIR$/../../../Lok/build/intermediates/incremental-runtime-classes" />
       <excludeFolder url="file://$MODULE_DIR$/../../../Lok/build/intermediates/incremental-safeguard" />
-      <excludeFolder url="file://$MODULE_DIR$/../../../Lok/build/intermediates/incremental-verifier" />
       <excludeFolder url="file://$MODULE_DIR$/../../../Lok/build/intermediates/instant-run-support" />
       <excludeFolder url="file://$MODULE_DIR$/../../../Lok/build/intermediates/jniLibs" />
       <excludeFolder url="file://$MODULE_DIR$/../../../Lok/build/intermediates/manifests" />
-      <excludeFolder url="file://$MODULE_DIR$/../../../Lok/build/intermediates/reload-dex" />
+      <excludeFolder url="file://$MODULE_DIR$/../../../Lok/build/intermediates/multi-dex" />
+      <excludeFolder url="file://$MODULE_DIR$/../../../Lok/build/intermediates/pre-dexed" />
       <excludeFolder url="file://$MODULE_DIR$/../../../Lok/build/intermediates/res" />
-      <excludeFolder url="file://$MODULE_DIR$/../../../Lok/build/intermediates/restart-dex" />
       <excludeFolder url="file://$MODULE_DIR$/../../../Lok/build/intermediates/rs" />
       <excludeFolder url="file://$MODULE_DIR$/../../../Lok/build/intermediates/shaders" />
       <excludeFolder url="file://$MODULE_DIR$/../../../Lok/build/intermediates/symbols" />
@@ -246,8 +237,8 @@
     <orderEntry type="library" exported="" name="bcprov-jdk15on-1.49" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="robolectric-annotations-3.0" level="project" />
     <orderEntry type="library" exported="" name="play-services-basement-9.2.1" level="project" />
-    <orderEntry type="library" exported="" scope="TEST" name="robolectric-utils-3.0" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="asm-analysis-5.0.1" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="robolectric-utils-3.0" level="project" />
     <orderEntry type="library" exported="" name="mediarouter-v7-23.0.0" level="project" />
     <orderEntry type="library" exported="" name="firebase-crash-9.2.1" level="project" />
     <orderEntry type="library" exported="" name="play-services-safetynet-9.2.1" level="project" />
@@ -260,6 +251,5 @@
     <orderEntry type="library" exported="" scope="TEST" name="junit-4.10" level="project" />
     <orderEntry type="library" exported="" name="android-async-http-1.4.9" level="project" />
     <orderEntry type="library" exported="" name="firebase-analytics-9.2.1" level="project" />
-    <orderEntry type="library" exported="" name="android-android-23" level="project" />
   </component>
 </module>

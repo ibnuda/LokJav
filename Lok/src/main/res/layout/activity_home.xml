@@ -9,10 +9,20 @@
         android:fitsSystemWindows="true"
         tools:openDrawer="start">
 
-    <include
-            layout="@layout/app_bar_home"
+    <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+        <include
+                layout="@layout/app_bar_home"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+        <FrameLayout
+                android:id="@+id/frame_layout_fragments"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
+    </LinearLayout>
 
     <android.support.design.widget.NavigationView
             android:id="@+id/nav_view"
@@ -22,10 +32,4 @@
             android:fitsSystemWindows="true"
             app:headerLayout="@layout/nav_header_home"
             app:menu="@menu/activity_home_drawer"/>
-
-    <FrameLayout
-        android:id="@+id/frame_layout_fragments"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"/>
 </android.support.v4.widget.DrawerLayout>

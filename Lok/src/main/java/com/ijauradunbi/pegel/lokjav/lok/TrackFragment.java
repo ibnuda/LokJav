@@ -10,6 +10,7 @@ import android.os.SystemClock;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,7 +40,9 @@ public class TrackFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         fragmentActivity = super.getActivity();
+        Log.d(TAG, "onCreateView: " + fragmentActivity.toString());
         linearLayout = (LinearLayout) inflater.inflate(R.layout.fragment_track, container, false);
+        Log.d(TAG, "onCreateView: " + linearLayout.toString());
         SharedPreferences preferences = fragmentActivity.getSharedPreferences("lokjav", Context.MODE_PRIVATE);
         trackingNow = preferences.getBoolean("trackingNow", false);
         boolean firstTime = preferences.getBoolean("firstTime", false);
